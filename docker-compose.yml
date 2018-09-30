@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  mailserver:
+    image: analogic/poste.io
+    ports:
+      - "80:80"
+      - "25:25"
+      - "110:110"
+      - "143:143"
+      - "587:587"
+      - "993:993"
+      - "995:995"
+      - "4190:4190"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./nginx/htmlnginx/html/.well-known:/opt/www/.well-known
+      - ./data:/data
